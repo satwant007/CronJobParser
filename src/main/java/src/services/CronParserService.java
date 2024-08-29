@@ -13,7 +13,7 @@ public class CronParserService {
     ArrayList<Integer> month;
     ArrayList<Integer> dayOfWeek;
 
-    public CronParserService(String exp) {
+    public CronParserService(String exp, String command) {
         this.expression = exp;
         String[] components = exp.split(" ");
         if (components.length == 6) {
@@ -23,7 +23,6 @@ public class CronParserService {
             this.dayOfMonth = (new DayOfMonthModel(components[3])).getNextOccurrences();
             this.month = (new MonthModel(components[4])).getNextOccurrences();
             this.dayOfWeek = (new DayOfWeekModel(components[5])).getNextOccurrences();
-
             System.out.println("second        " + stringifyResponse(seconds));
         }
         else if(components.length==5){
@@ -38,6 +37,7 @@ public class CronParserService {
         System.out.println("day of month  " + stringifyResponse(dayOfMonth));
         System.out.println("month         " + stringifyResponse(month));
         System.out.println("dayOfWeek     " + stringifyResponse(dayOfWeek));
+        System.out.println("command       " + command);
     }
 
     private String stringifyResponse(ArrayList<Integer> responseList) {
