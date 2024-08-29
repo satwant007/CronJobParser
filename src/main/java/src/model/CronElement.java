@@ -19,33 +19,32 @@ public class CronElement {
     }
 
     public ArrayList<Integer> getNextOccurrences() {
-        System.out.println("Expression " + this.expression + "  for " + this.description);
         if (this.expression.matches(SpecialCharacters.AsteriskWithSlash.getRegex())) {
-            CronParserAsteriskWithSlash parser = new CronParserAsteriskWithSlash(
+            CronParser parser = new CronParserAsteriskWithSlash(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.matches(SpecialCharacters.CommaAndDash.getRegex())) {
-            CronParserCommaAndSlash parser = new CronParserCommaAndSlash(
+            CronParser parser = new CronParserCommaAndSlash(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.compareTo(SpecialCharacters.Asterisk.getRegex()) == 0) {
-            CronParserAsterisk parser = new CronParserAsterisk(
+            CronParser parser = new CronParserAsterisk(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.matches(SpecialCharacters.Comma.getRegex())) {
-            CronParserComma parser = new CronParserComma(
+            CronParser parser = new CronParserComma(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.matches(SpecialCharacters.Dash.getRegex())) {
-            CronParserDash parser = new CronParserDash(
+            CronParser parser = new CronParserDash(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.matches(SpecialCharacters.Slash.getRegex())) {
-            CronParserSlash parser = new CronParserSlash(
+            CronParser parser = new CronParserSlash(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         } else if (this.expression.matches(SpecialCharacters.Number.getRegex())) {
-            CronParserNumber parser = new CronParserNumber(
+            CronParser parser = new CronParserNumber(
                     this.min, this.max, this.expression, this.description);
             return parser.resolveExpression();
         }
