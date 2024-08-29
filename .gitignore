@@ -1,0 +1,18 @@
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore JetBrains IDE project files (e.g., IntelliJ IDEA, PyCharm, etc.)
+.idea/
+
+# Ignore other common files and directories
+node_modules/
+*.log
+*.tmp
+
+# Ignore any specific file or directory
+/path/to/specific/file_or_directory
+
+# Ignore all .env files
+.env
+target
+*.iml
