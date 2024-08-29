@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 class ApplicationTest {
     @Test
     public void validCronExpressionTest(){
+        String command = " /usr/bin/find";
         String[] validCronExpressions = {
                 "* * * * *",         // Every minute
                 "15 * * * *",        // Every hour at minute 15
@@ -17,17 +18,17 @@ class ApplicationTest {
         };
         Application app = new Application();
         for(String cronExpression: validCronExpressions)
-        app.parseCronExpression(cronExpression);
+        app.parseCronExpression(cronExpression, command);
     }
 
     @Test
     public void invalidCronExpressionTest(){
         String[] invalidCronExpressions = {
-                "*/-5 * * * *",         // Invalid: Combination of `*/` and `-` is not allowed
+                "*/-5 * abcd * *",         // Invalid: Combination of `*/` and `-` is not allowed
                 "5,10-15/* * * * *",    // Invalid: Combination of `,` and `/*` is not valid
                 "0 0-23/2,*/3 * * *",   // Invalid: Mixing ranges with steps and lists
                 "*/15-30 * * * *",      // Invalid: `*/15-30` is not a valid range step
-                "60 * * * *",           // Invalid: Minute field cannot have `60`
+                "60 * * 15-10 *",           // Invalid: Minute field cannot have `60`
                 "0 24 * * *",           // Invalid: Hour field cannot have `24`
                 "* * * * 8",            // Invalid: Day of the week field must be within 0-7
                 "* * * 13 *",           // Invalid: Month field cannot have `13`
