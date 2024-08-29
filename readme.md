@@ -22,6 +22,9 @@ Here is the breakdown of each field:
 2. Open terminal in folder : /path/to/repo/CronJobParser
 3. Provide the cron expression and the command to be executed in the following format :
 
-                        cronExecutor.sh "Cron_Expression command"
-            Example :   cronExecutor.sh  ＂*/15 0 1,15 * 1-5 /usr/bin/find＂
-
+                        ./run_cron_parser.sh "Cron_Expression command"
+   
+            Example :   cd /path/to/folder/CronJobParser
+                        ./run_cron_parser.sh
+                     (Prompt)Enter the cron expression string:
+                        */15 0 1,15 * 1-5 /usr/bin/find
