@@ -16,7 +16,7 @@ read cronExpression
 if [ ! -f "target/classes/Application.class" ]; then
     echo "Compiling the Java project..."
     # Compile the project (correct the path to Application.java)
-    javac -d target/classes src/main/java/Application.java
+    mvn install
 
     if [ $? -ne 0 ]; then
         echo "Compilation failed. Please check the source code for errors."

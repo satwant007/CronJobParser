@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 class ApplicationTest {
     @Test
     public void validCronExpressionTest(){
+
+        System.out.println("Testing 10 Valid Expressions.");
         String command = " /usr/bin/find";
         String[] validCronExpressions = {
                 "* * * * *",         // Every minute
@@ -23,6 +25,7 @@ class ApplicationTest {
 
     @Test
     public void invalidCronExpressionTest(){
+        System.out.println("Testing 10 Invalid Expressions.");
         String[] invalidCronExpressions = {
                 "*/-5 * abcd * *",         // Invalid: Combination of `*/` and `-` is not allowed
                 "5,10-15/* * * * *",    // Invalid: Combination of `,` and `/*` is not valid
