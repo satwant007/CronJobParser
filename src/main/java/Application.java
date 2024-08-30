@@ -14,23 +14,13 @@ public class Application {
     }
 
     public static CronParserService parseCronExpression(String cronExpressions, String command) {
-        try {
-            System.out.println("\nExpression : "+cronExpressions);
-            return new CronParserService(cronExpressions, command);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            return null;
-        }
+        System.out.println("\nExpression : "+cronExpressions);
+        return new CronParserService(cronExpressions, command);
     }
 
     public static CronParserService parseCronExpression(String cronExpressions) {
         String command = "Blank command.";
-        try {
-            System.out.println("\nExpression : "+cronExpressions);
-            return new CronParserService(cronExpressions, command);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            return null;
-        }
+        System.out.println("\nExpression : "+cronExpressions);
+        return new CronParserService(cronExpressions, command);
     }
 }

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class CronParserService {
     String expression;
-    ArrayList<Integer> seconds;
     ArrayList<Integer> minutes;
     ArrayList<Integer> hours;
     ArrayList<Integer> dayOfMonth;
@@ -16,16 +15,7 @@ public class CronParserService {
     public CronParserService(String exp, String command) {
         this.expression = exp;
         String[] components = exp.split(" ");
-        if (components.length == 6) {
-            this.seconds = (new SecondsModel(components[0])).getNextOccurrences();
-            this.minutes = (new MinutesModel(components[1])).getNextOccurrences();
-            this.hours = (new HoursModel(components[2])).getNextOccurrences();
-            this.dayOfMonth = (new DayOfMonthModel(components[3])).getNextOccurrences();
-            this.month = (new MonthModel(components[4])).getNextOccurrences();
-            this.dayOfWeek = (new DayOfWeekModel(components[5])).getNextOccurrences();
-            System.out.println("second        " + stringifyResponse(seconds));
-        }
-        else if(components.length==5){
+        if(components.length==5){
             this.minutes = (new MinutesModel(components[0])).getNextOccurrences();
             this.hours = (new HoursModel(components[1])).getNextOccurrences();
             this.dayOfMonth = (new DayOfMonthModel(components[2])).getNextOccurrences();
